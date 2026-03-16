@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List Your Property | Elysian Real Estate</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0f172a', 
+                        secondary: '#d4af37', 
+                        accent: '#f8fafc', 
+                    },
+                    boxShadow: {
+                        'premium': '0 10px 40px -10px rgba(0,0,0,0.1)',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-accent text-slate-800 antialiased">
+
+    <!-- Navbar -->
+    <header id="navbar" class="fixed w-full z-50 transition-all duration-300 py-4 bg-white shadow-md">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2">
+                <i data-lucide="gem" class="w-8 h-8 text-secondary"></i>
+                <span id="logo" class="text-2xl font-serif font-bold text-slate-900 tracking-wide transition-colors duration-300">Elysian</span>
+            </a>
+            
+            <nav class="hidden md:flex gap-8 items-center">
+                <a href="index.html" class="nav-link text-slate-800 font-medium hover:text-secondary transition-colors duration-300">Home</a>
+                <a href="properties.html" class="nav-link text-slate-800 font-medium hover:text-secondary transition-colors duration-300">Properties</a>
+                <a href="add-property.html" class="nav-link text-secondary font-medium transition-colors duration-300 border-b-2 border-secondary pb-1">List Property</a>
+                <a href="contact.html" class="nav-link text-slate-800 font-medium hover:text-secondary transition-colors duration-300">Contact</a>
+            </nav>
+            
+            <div class="hidden md:block">
+                <a href="contact.html" class="px-6 py-3 bg-secondary text-white font-medium hover:bg-yellow-600 transition-colors duration-300 rounded shadow-lg">Schedule Visit</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-secondary p-2">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-white shadow-xl py-4 flex flex-col items-center gap-4 border-t border-slate-100">
+            <a href="index.html" class="text-slate-800 font-medium hover:text-secondary">Home</a>
+            <a href="properties.html" class="text-slate-800 font-medium hover:text-secondary">Properties</a>
+            <a href="add-property.html" class="text-secondary font-medium">List Property</a>
+            <a href="contact.html" class="text-slate-800 font-medium hover:text-secondary">Contact</a>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="pt-32 pb-16 bg-primary text-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 relative z-20 text-center">
+            <span class="text-secondary font-semibold tracking-wider uppercase text-sm mb-2 block">Sell or Rent</span>
+            <h1 class="text-4xl md:text-5xl font-serif mb-4">List Your Property</h1>
+            <p class="text-slate-300 max-w-2xl mx-auto font-light">Join the Elysian portfolio and connect with discerning buyers and renters globally. Provide the details below to begin.</p>
+        </div>
+    </section>
+
+    <!-- Form Section -->
+    <section class="py-16 max-w-4xl mx-auto px-6 md:px-12">
+        <form action="#" method="POST" class="bg-white p-8 md:p-12 rounded-xl shadow-premium border border-slate-100">
+            
+            <div class="mb-10 pb-6 border-b border-slate-100">
+                <h2 class="text-2xl font-serif text-primary mb-2">Basic Information</h2>
+                <p class="text-slate-500 text-sm">Tell us the core details about your real estate.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <div class="md:col-span-2">
+                    <label class="block text-sm font-medium text-slate-700 mb-2">Property Title *</label>
+                    <input type="text" placeholder="e.g. Modern Coastal Retreat" class="w-full p-4 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary/50 focus:border-secondary transition-all bg-slate-50" required>
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-slate-700 mb-2">Status *</label>
+                    <select class="w-full p-4 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary/50 focus:border-secondary transition-all bg-slate-50 appearance-none">
+                        <option>For Sale</option>
+                        <option>For Rent</option>
+                    </select>
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-slate-700 mb-2">Property Type *</label>
+                    <select class="w-full p-4 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary/50 focus:border-secondary transition-all bg-slate-50 appearance-none">
+                        <option>Villa</option>
+                        <option>Apartment</option>
+                        <option>Mansion</option>
+                        <option>Penthouse</option>
+                        <option>Commercial</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-slate-700 mb-2">Price ($) *</label>
+                    <input type="number" placeholder="Enter amount" class="w-full p-4 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary/50 focus:border-secondary transition-all bg-slate-50" required>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-slate-700 mb-2">Area Size (sqft)</label>
+                    <input type="number" placeholder="e.g. 2500" class="w-full p-4 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary/50 focus:border-secondary transition-all bg-slate-50">
+                </div>
+            </div>
+
+            <div class="mb-10 pb-6 border-b border-slate-100">
+                <h2 class="text-2xl font-serif text-primary mb-2">Location</h2>
+                <p class="text-slate-500 text-sm">Where is this property situated?</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <div class="md:col-span-2">
+                    <label class="block text-sm font-medium text-slate-700 mb-2">Address *</label>
+                    <input type="text" placeholder="123 Luxury Ave" class="w-full p-4 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary/50 focus:border-secondary transition-all bg-slate-50" required>
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-slate-700 mb-2">City *</label>
+                    <input type="text" placeholder="Beverly Hills" class="w-full p-4 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary/50 focus:border-secondary transition-all bg-slate-50" required>
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-slate-700 mb-2">State / Region</label>
+                    <input type="text" placeholder="California" class="w-full p-4 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary/50 focus:border-secondary transition-all bg-slate-50">
+                </div>
+            </div>
+
+            <div class="mb-10 pb-6 border-b border-slate-100">
+                <h2 class="text-2xl font-serif text-primary mb-2">Detailed Information</h2>
+                <p class="text-slate-500 text-sm">Features and full description.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <div>
+                    <label class="block text-sm font-medium text-slate-700 mb-2">Bedrooms</label>
+                    <input type="number" placeholder="Number of bedrooms" class="w-full p-4 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary/50 focus:border-secondary transition-all bg-slate-50">
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-slate-700 mb-2">Bathrooms</label>
+                    <input type="number" placeholder="Number of bathrooms" class="w-full p-4 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary/50 focus:border-secondary transition-all bg-slate-50">
+                </div>
+
+                <div class="md:col-span-2">
+                    <label class="block text-sm font-medium text-slate-700 mb-2">Description</label>
+                    <textarea rows="6" placeholder="Describe the elegant features of your property..." class="w-full p-4 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary/50 focus:border-secondary transition-all bg-slate-50 resize-none"></textarea>
+                </div>
+            </div>
+
+            <div class="mb-10 pb-6 border-b border-slate-100">
+                <h2 class="text-2xl font-serif text-primary mb-2">Media</h2>
+                <p class="text-slate-500 text-sm">Upload high-quality images of the property.</p>
+            </div>
+
+            <div class="mb-8">
+                <div class="border-2 border-dashed border-slate-300 rounded-xl p-10 text-center hover:border-secondary hover:bg-slate-50 transition-colors cursor-pointer relative">
+                    <input type="file" id="property-images" multiple accept="image/*" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer">
+                    <div class="flex flex-col items-center gap-4">
+                        <div class="w-16 h-16 bg-slate-100 text-slate-400 rounded-full flex items-center justify-center">
+                            <i data-lucide="upload-cloud" class="w-8 h-8"></i>
+                        </div>
+                        <div>
+                            <p class="text-slate-700 font-medium text-lg">Click to upload or drag and drop</p>
+                            <p class="text-slate-500 text-sm mt-1">PNG, JPG, JPEG up to 10MB</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image Preview Container -->
+                <div id="image-preview-container" class="mt-6 grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <!-- Previews injected here via JS -->
+                </div>
+            </div>
+
+            <div class="pt-6">
+                <button type="button" class="w-full bg-primary text-white py-4 rounded-lg font-medium text-lg hover:bg-slate-800 transition-colors shadow-lg shadow-primary/20 flex items-center justify-center gap-2">
+                    <i data-lucide="check-circle" class="w-5 h-5"></i> Submit Listing
+                </button>
+            </div>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 border-t border-slate-800 text-slate-300 pt-20 pb-10">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <div>
+                    <a href="index.html" class="flex items-center gap-2 mb-6">
+                        <i data-lucide="gem" class="w-8 h-8 text-secondary"></i>
+                        <span class="text-2xl font-serif font-bold text-white tracking-wide">Elysian</span>
+                    </a>
+                    <p class="text-sm text-slate-400 font-light leading-relaxed mb-6">
+                        Redefining luxury real estate. Experience the most exquisite properties around the globe with unparalleled service.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-serif text-lg mb-6">Quick Links</h4>
+                    <ul class="space-y-3 text-sm font-light">
+                        <li><a href="index.html" class="hover:text-secondary transition-colors">Home</a></li>
+                        <li><a href="properties.html" class="hover:text-secondary transition-colors">All Properties</a></li>
+                        <li><a href="add-property.html" class="hover:text-secondary transition-colors">List Your Property</a></li>
+                        <li><a href="contact.html" class="hover:text-secondary transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm font-light text-slate-500">
+                <p>&copy; 2024 Elysian Real Estate. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
