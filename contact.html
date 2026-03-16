@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Elysian Real Estate</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0f172a', 
+                        secondary: '#d4af37', 
+                        accent: '#f8fafc', 
+                    },
+                    boxShadow: {
+                        'premium': '0 10px 40px -10px rgba(0,0,0,0.1)',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-accent text-slate-800 antialiased">
+
+    <!-- Navbar -->
+    <header id="navbar" class="fixed w-full z-50 transition-all duration-300 py-4 bg-white shadow-md">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2">
+                <i data-lucide="gem" class="w-8 h-8 text-secondary"></i>
+                <span id="logo" class="text-2xl font-serif font-bold text-slate-900 tracking-wide transition-colors duration-300">Elysian</span>
+            </a>
+            
+            <nav class="hidden md:flex gap-8 items-center">
+                <a href="index.html" class="nav-link text-slate-800 font-medium hover:text-secondary transition-colors duration-300">Home</a>
+                <a href="properties.html" class="nav-link text-slate-800 font-medium hover:text-secondary transition-colors duration-300">Properties</a>
+                <a href="add-property.html" class="nav-link text-slate-800 font-medium hover:text-secondary transition-colors duration-300">List Property</a>
+                <a href="contact.html" class="nav-link text-secondary font-medium transition-colors duration-300 border-b-2 border-secondary pb-1">Contact</a>
+            </nav>
+            
+            <div class="hidden md:block">
+                <a href="contact.html" class="px-6 py-3 bg-secondary text-white font-medium hover:bg-yellow-600 transition-colors duration-300 rounded shadow-lg">Schedule Visit</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-secondary p-2">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-white shadow-xl py-4 flex flex-col items-center gap-4 border-t border-slate-100">
+            <a href="index.html" class="text-slate-800 font-medium hover:text-secondary">Home</a>
+            <a href="properties.html" class="text-slate-800 font-medium hover:text-secondary">Properties</a>
+            <a href="add-property.html" class="text-slate-800 font-medium hover:text-secondary">List Property</a>
+            <a href="contact.html" class="text-secondary font-medium">Contact</a>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="pt-32 pb-16 bg-primary text-white relative overflow-hidden">
+        <div class="absolute inset-0 z-0 opacity-20">
+            <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&q=80&w=2000" alt="Office" class="w-full h-full object-cover">
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-t from-primary to-transparent z-10"></div>
+
+        <div class="max-w-7xl mx-auto px-6 md:px-12 relative z-20 text-center">
+            <span class="text-secondary font-semibold tracking-wider uppercase text-sm mb-2 block">Get in Touch</span>
+            <h1 class="text-4xl md:text-6xl font-serif mb-4">Contact Our Team</h1>
+            <p class="text-slate-300 max-w-2xl mx-auto font-light">Whether you are looking to buy, sell, or rent, our team of dedicated professionals is here to provide you with unparalleled service.</p>
+        </div>
+    </section>
+
+    <!-- Contact Info & Form -->
+    <section class="py-20 max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16">
+        
+        <!-- Contact Information -->
+        <div class="order-2 lg:order-1 flex flex-col justify-center">
+            <h2 class="text-3xl font-serif text-primary mb-8">Reach Out Today</h2>
+            <p class="text-slate-600 mb-10 font-light leading-relaxed">
+                We invite you to experience the Elysian difference. Contact us to schedule a private viewing, request a property valuation, or simply to discuss your real estate aspirations with our experts.
+            </p>
+
+            <div class="space-y-8">
+                <div class="flex items-start gap-6">
+                    <div class="w-14 h-14 bg-white shadow-sm border border-slate-100 rounded-full flex items-center justify-center text-secondary flex-shrink-0">
+                        <i data-lucide="map-pin" class="w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-serif text-slate-800 mb-2">Global Headquarters</h4>
+                        <p class="text-slate-500 font-light">123 Elegance Blvd, Suite 400<br>Beverly Hills, CA 90210<br>United States</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start gap-6">
+                    <div class="w-14 h-14 bg-white shadow-sm border border-slate-100 rounded-full flex items-center justify-center text-secondary flex-shrink-0">
+                        <i data-lucide="phone" class="w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-serif text-slate-800 mb-2">Direct Lines</h4>
+                        <p class="text-slate-500 font-light mb-1">Sales: +1 (800) 123-4567</p>
+                        <p class="text-slate-500 font-light">Support: +1 (800) 987-6543</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start gap-6">
+                    <div class="w-14 h-14 bg-white shadow-sm border border-slate-100 rounded-full flex items-center justify-center text-secondary flex-shrink-0">
+                        <i data-lucide="mail" class="w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-serif text-slate-800 mb-2">Email Directory</h4>
+                        <p class="text-slate-500 font-light mb-1">Inquiries: info@elysianrealestate.com</p>
+                        <p class="text-slate-500 font-light">Listings: listings@elysianrealestate.com</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 pt-8 border-t border-slate-200">
+                <p class="text-slate-500 mb-4 font-medium">Follow our legacy of excellence:</p>
+                <div class="flex gap-4">
+                    <a href="#" class="w-12 h-12 bg-white rounded-full shadow-sm border border-slate-100 flex items-center justify-center text-slate-600 hover:bg-primary hover:text-white hover:border-primary transition-all"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+                    <a href="#" class="w-12 h-12 bg-white rounded-full shadow-sm border border-slate-100 flex items-center justify-center text-slate-600 hover:bg-primary hover:text-white hover:border-primary transition-all"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+                    <a href="#" class="w-12 h-12 bg-white rounded-full shadow-sm border border-slate-100 flex items-center justify-center text-slate-600 hover:bg-primary hover:text-white hover:border-primary transition-all"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                    <a href="#" class="w-12 h-12 bg-white rounded-full shadow-sm border border-slate-100 flex items-center justify-center text-slate-600 hover:bg-primary hover:text-white hover:border-primary transition-all"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="order-1 lg:order-2">
+            <form class="bg-white p-8 md:p-10 rounded-xl shadow-premium border border-slate-100 h-full">
+                <h3 class="text-2xl font-serif text-primary mb-6">Send a Message</h3>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-2">First Name</label>
+                        <input type="text" class="w-full p-4 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary/50 focus:border-secondary transition-all bg-slate-50" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-2">Last Name</label>
+                        <input type="text" class="w-full p-4 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary/50 focus:border-secondary transition-all bg-slate-50" required>
+                    </div>
+                </div>
+                
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-slate-700 mb-2">Email Address</label>
+                    <input type="email" class="w-full p-4 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary/50 focus:border-secondary transition-all bg-slate-50" required>
+                </div>
+                
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-slate-700 mb-2">Phone Number</label>
+                    <input type="tel" class="w-full p-4 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary/50 focus:border-secondary transition-all bg-slate-50">
+                </div>
+
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-slate-700 mb-2">Subject</label>
+                    <select class="w-full p-4 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary/50 focus:border-secondary transition-all bg-slate-50 appearance-none">
+                        <option>General Inquiry</option>
+                        <option>Schedule a Viewing</option>
+                        <option>Property Valuation</option>
+                        <option>Investment Opportunities</option>
+                    </select>
+                </div>
+
+                <div class="mb-8">
+                    <label class="block text-sm font-medium text-slate-700 mb-2">Message</label>
+                    <textarea rows="5" class="w-full p-4 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary/50 focus:border-secondary transition-all bg-slate-50 resize-none" required></textarea>
+                </div>
+
+                <button type="submit" class="w-full bg-primary text-white py-4 rounded-lg font-medium hover:bg-slate-800 transition-colors shadow-lg flex items-center justify-center gap-2">
+                    Send Message <i data-lucide="send" class="w-4 h-4"></i>
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 border-t border-slate-800 text-slate-300 pt-20 pb-10">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <div>
+                    <a href="index.html" class="flex items-center gap-2 mb-6">
+                        <i data-lucide="gem" class="w-8 h-8 text-secondary"></i>
+                        <span class="text-2xl font-serif font-bold text-white tracking-wide">Elysian</span>
+                    </a>
+                    <p class="text-sm text-slate-400 font-light leading-relaxed mb-6">
+                        Redefining luxury real estate. Experience the most exquisite properties around the globe with unparalleled service.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-serif text-lg mb-6">Quick Links</h4>
+                    <ul class="space-y-3 text-sm font-light">
+                        <li><a href="index.html" class="hover:text-secondary transition-colors">Home</a></li>
+                        <li><a href="properties.html" class="hover:text-secondary transition-colors">All Properties</a></li>
+                        <li><a href="add-property.html" class="hover:text-secondary transition-colors">List Your Property</a></li>
+                        <li><a href="contact.html" class="hover:text-secondary transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm font-light text-slate-500">
+                <p>&copy; 2024 Elysian Real Estate. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

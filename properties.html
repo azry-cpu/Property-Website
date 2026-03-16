@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Properties | Elysian Real Estate</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0f172a', 
+                        secondary: '#d4af37', 
+                        accent: '#f8fafc', 
+                    },
+                    boxShadow: {
+                        'premium': '0 10px 40px -10px rgba(0,0,0,0.1)',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-accent text-slate-800 antialiased"> <!-- No transparent-nav class here to keep header white -->
+
+    <!-- Navbar (Solid Background) -->
+    <header id="navbar" class="fixed w-full z-50 transition-all duration-300 py-4 bg-white shadow-md">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2">
+                <i data-lucide="gem" class="w-8 h-8 text-secondary"></i>
+                <span id="logo" class="text-2xl font-serif font-bold text-slate-900 tracking-wide transition-colors duration-300">Elysian</span>
+            </a>
+            
+            <nav class="hidden md:flex gap-8 items-center">
+                <a href="index.html" class="nav-link text-slate-800 font-medium hover:text-secondary transition-colors duration-300">Home</a>
+                <a href="properties.html" class="nav-link text-secondary font-medium transition-colors duration-300 border-b-2 border-secondary pb-1">Properties</a>
+                <a href="add-property.html" class="nav-link text-slate-800 font-medium hover:text-secondary transition-colors duration-300">List Property</a>
+                <a href="contact.html" class="nav-link text-slate-800 font-medium hover:text-secondary transition-colors duration-300">Contact</a>
+            </nav>
+            
+            <div class="hidden md:block">
+                <a href="contact.html" class="px-6 py-3 bg-secondary text-white font-medium hover:bg-yellow-600 transition-colors duration-300 rounded shadow-lg">Schedule Visit</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-secondary p-2">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-white shadow-xl py-4 flex flex-col items-center gap-4 border-t border-slate-100">
+            <a href="index.html" class="text-slate-800 font-medium hover:text-secondary">Home</a>
+            <a href="properties.html" class="text-secondary font-medium">Properties</a>
+            <a href="add-property.html" class="text-slate-800 font-medium hover:text-secondary">List Property</a>
+            <a href="contact.html" class="text-slate-800 font-medium hover:text-secondary">Contact</a>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="pt-32 pb-16 bg-primary text-white relative overflow-hidden">
+        <div class="absolute inset-0 z-0 opacity-20">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=2000" alt="Texture" class="w-full h-full object-cover">
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-t from-primary to-transparent z-10"></div>
+        
+        <div class="max-w-7xl mx-auto px-6 md:px-12 relative z-20">
+            <h1 class="text-4xl md:text-6xl font-serif mb-4">Exclusive Properties</h1>
+            <p class="text-slate-300 max-w-2xl font-light">Browse our curated collection of luxury homes, modern apartments, and grand estates available for sale or rent.</p>
+        </div>
+    </section>
+
+    <!-- Properties Container -->
+    <section class="py-16 max-w-7xl mx-auto px-6 md:px-12 flex flex-col lg:flex-row gap-10">
+        
+        <!-- Sidebar Filters -->
+        <aside class="w-full lg:w-1/4">
+            <div class="bg-white p-6 rounded-xl shadow-premium top-24 sticky">
+                <div class="flex items-center justify-between mb-6">
+                    <h3 class="text-xl font-serif font-semibold text-primary">Filters</h3>
+                    <button class="text-sm text-secondary hover:underline">Reset</button>
+                </div>
+
+                <!-- Search -->
+                <div class="mb-6">
+                    <label class="block text-sm text-slate-600 mb-2">Search</label>
+                    <div class="relative">
+                        <input type="text" placeholder="Keywords..." class="w-full pl-10 pr-4 py-3 border border-slate-200 rounded focus:outline-none focus:border-secondary transition-colors bg-slate-50">
+                        <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-4 top-3.5"></i>
+                    </div>
+                </div>
+
+                <!-- Status -->
+                <div class="mb-6">
+                    <label class="block text-sm text-slate-600 mb-2">Status</label>
+                    <div class="flex gap-4">
+                        <label class="flex items-center gap-2 cursor-pointer">
+                            <input type="radio" name="status" class="text-secondary focus:ring-secondary" checked>
+                            <span class="text-slate-700">Any</span>
+                        </label>
+                        <label class="flex items-center gap-2 cursor-pointer">
+                            <input type="radio" name="status" class="text-secondary focus:ring-secondary">
+                            <span class="text-slate-700">Sale</span>
+                        </label>
+                        <label class="flex items-center gap-2 cursor-pointer">
+                            <input type="radio" name="status" class="text-secondary focus:ring-secondary">
+                            <span class="text-slate-700">Rent</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Type -->
+                <div class="mb-6">
+                    <label class="block text-sm text-slate-600 mb-2">Property Type</label>
+                    <select class="w-full p-3 border border-slate-200 rounded focus:outline-none focus:border-secondary transition-colors bg-slate-50 text-slate-700">
+                        <option>All Types</option>
+                        <option>Luxury Villa</option>
+                        <option>Penthouse</option>
+                        <option>Mansion</option>
+                        <option>Apartment</option>
+                    </select>
+                </div>
+
+                <!-- Price Range -->
+                <div class="mb-6">
+                    <label class="block text-sm text-slate-600 mb-2">Price Range</label>
+                    <div class="flex gap-2 items-center">
+                        <input type="number" placeholder="Min" class="w-1/2 p-3 border border-slate-200 rounded focus:outline-none focus:border-secondary transition-colors bg-slate-50 text-slate-700">
+                        <span class="text-slate-400">-</span>
+                        <input type="number" placeholder="Max" class="w-1/2 p-3 border border-slate-200 rounded focus:outline-none focus:border-secondary transition-colors bg-slate-50 text-slate-700">
+                    </div>
+                </div>
+
+                <button class="w-full bg-primary text-white py-3 rounded hover:bg-slate-800 transition-colors font-medium">Apply Filters</button>
+            </div>
+        </aside>
+
+        <!-- Properties Grid -->
+        <div class="w-full lg:w-3/4">
+            <!-- Top Controls -->
+            <div class="flex justify-between items-center mb-8 border-b border-slate-200 pb-4">
+                <p class="text-slate-500"><span class="font-semibold text-primary">12</span> Properties Found</p>
+                <div class="flex items-center gap-4">
+                    <label class="text-sm text-slate-500">Sort by:</label>
+                    <select class="border border-slate-200 rounded p-2 focus:outline-none focus:border-secondary text-sm bg-transparent">
+                        <option>Newest</option>
+                        <option>Price (Low to High)</option>
+                        <option>Price (High to Low)</option>
+                    </select>
+                    <div class="hidden sm:flex gap-2">
+                        <button class="p-2 border border-slate-200 rounded hover:bg-slate-100 text-primary"><i data-lucide="grid" class="w-4 h-4"></i></button>
+                        <button class="p-2 border border-slate-200 rounded hover:bg-slate-100 text-slate-400"><i data-lucide="list" class="w-4 h-4"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <!-- Card 1 -->
+                <a href="property-details.html" class="property-card group bg-white rounded-xl overflow-hidden shadow-sm border border-slate-100 hover:shadow-premium transition-all duration-300 flex flex-col h-full">
+                    <div class="relative overflow-hidden h-64">
+                        <div class="absolute top-4 left-4 z-10 bg-primary text-white text-xs font-bold px-3 py-1 rounded tracking-wider">FOR SALE</div>
+                        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&q=80&w=800" alt="Villa" class="property-img w-full h-full object-cover transition-transform duration-700">
+                        <div class="absolute bottom-4 right-4 z-10 bg-white/90 backdrop-blur px-3 py-1 rounded shadow-sm text-primary font-bold">
+                            $4,200,000
+                        </div>
+                    </div>
+                    <div class="p-5 flex-1 flex flex-col">
+                        <div class="text-secondary text-sm font-medium mb-1">Calabasas, CA</div>
+                        <h3 class="text-lg font-serif text-slate-800 font-bold mb-3 line-clamp-1">The Serenity Estate</h3>
+                        <div class="flex items-center gap-4 text-slate-500 text-sm mb-4 mt-auto">
+                            <div class="flex items-center gap-1"><i data-lucide="bed" class="w-4 h-4"></i> 5</div>
+                            <div class="flex items-center gap-1"><i data-lucide="bath" class="w-4 h-4"></i> 6</div>
+                            <div class="flex items-center gap-1"><i data-lucide="maximize" class="w-4 h-4"></i> 5,500 sqft</div>
+                        </div>
+                        <div class="border-t border-slate-100 pt-3 flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <img src="https://i.pravatar.cc/100?img=32" alt="Agent" class="w-6 h-6 rounded-full">
+                                <span class="text-xs text-slate-600">Sarah Jenkins</span>
+                            </div>
+                            <button class="text-slate-400 hover:text-red-500 transition-colors"><i data-lucide="heart" class="w-4 h-4"></i></button>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Card 2 -->
+                <a href="property-details.html" class="property-card group bg-white rounded-xl overflow-hidden shadow-sm border border-slate-100 hover:shadow-premium transition-all duration-300 flex flex-col h-full">
+                    <div class="relative overflow-hidden h-64">
+                        <div class="absolute top-4 left-4 z-10 bg-secondary text-white text-xs font-bold px-3 py-1 rounded tracking-wider">FOR RENT</div>
+                        <img src="https://images.unsplash.com/photo-1600607687931-cebf10cbdaed?auto=format&fit=crop&q=80&w=800" alt="Mansion" class="property-img w-full h-full object-cover transition-transform duration-700">
+                        <div class="absolute bottom-4 right-4 z-10 bg-white/90 backdrop-blur px-3 py-1 rounded shadow-sm text-primary font-bold">
+                            $12,000 <span class="text-xs font-normal">/mo</span>
+                        </div>
+                    </div>
+                    <div class="p-5 flex-1 flex flex-col">
+                        <div class="text-secondary text-sm font-medium mb-1">Aspen, CO</div>
+                        <h3 class="text-lg font-serif text-slate-800 font-bold mb-3 line-clamp-1">Snowpeak Lodge</h3>
+                        <div class="flex items-center gap-4 text-slate-500 text-sm mb-4 mt-auto">
+                            <div class="flex items-center gap-1"><i data-lucide="bed" class="w-4 h-4"></i> 7</div>
+                            <div class="flex items-center gap-1"><i data-lucide="bath" class="w-4 h-4"></i> 8</div>
+                            <div class="flex items-center gap-1"><i data-lucide="maximize" class="w-4 h-4"></i> 9,200 sqft</div>
+                        </div>
+                        <div class="border-t border-slate-100 pt-3 flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <img src="https://i.pravatar.cc/100?img=11" alt="Agent" class="w-6 h-6 rounded-full">
+                                <span class="text-xs text-slate-600">David Miller</span>
+                            </div>
+                            <button class="text-slate-400 hover:text-red-500 transition-colors"><i data-lucide="heart" class="w-4 h-4"></i></button>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Card 3 -->
+                <a href="property-details.html" class="property-card group bg-white rounded-xl overflow-hidden shadow-sm border border-slate-100 hover:shadow-premium transition-all duration-300 flex flex-col h-full">
+                    <div class="relative overflow-hidden h-64">
+                        <div class="absolute top-4 left-4 z-10 bg-primary text-white text-xs font-bold px-3 py-1 rounded tracking-wider">FOR SALE</div>
+                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=800" alt="Villa" class="property-img w-full h-full object-cover transition-transform duration-700">
+                        <div class="absolute bottom-4 right-4 z-10 bg-white/90 backdrop-blur px-3 py-1 rounded shadow-sm text-primary font-bold">
+                            $6,800,000
+                        </div>
+                    </div>
+                    <div class="p-5 flex-1 flex flex-col">
+                        <div class="text-secondary text-sm font-medium mb-1">Hamptons, NY</div>
+                        <h3 class="text-lg font-serif text-slate-800 font-bold mb-3 line-clamp-1">Coastal Modern Retreat</h3>
+                        <div class="flex items-center gap-4 text-slate-500 text-sm mb-4 mt-auto">
+                            <div class="flex items-center gap-1"><i data-lucide="bed" class="w-4 h-4"></i> 6</div>
+                            <div class="flex items-center gap-1"><i data-lucide="bath" class="w-4 h-4"></i> 7</div>
+                            <div class="flex items-center gap-1"><i data-lucide="maximize" class="w-4 h-4"></i> 7,100 sqft</div>
+                        </div>
+                        <div class="border-t border-slate-100 pt-3 flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <img src="https://i.pravatar.cc/100?img=44" alt="Agent" class="w-6 h-6 rounded-full">
+                                <span class="text-xs text-slate-600">Elena Rossi</span>
+                            </div>
+                            <button class="text-slate-400 hover:text-red-500 transition-colors"><i data-lucide="heart" class="w-4 h-4"></i></button>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Card 4 -->
+                <a href="property-details.html" class="property-card group bg-white rounded-xl overflow-hidden shadow-sm border border-slate-100 hover:shadow-premium transition-all duration-300 flex flex-col h-full">
+                    <div class="relative overflow-hidden h-64">
+                        <div class="absolute top-4 left-4 z-10 bg-primary text-white text-xs font-bold px-3 py-1 rounded tracking-wider">FOR SALE</div>
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=800" alt="Villa" class="property-img w-full h-full object-cover transition-transform duration-700">
+                        <div class="absolute bottom-4 right-4 z-10 bg-white/90 backdrop-blur px-3 py-1 rounded shadow-sm text-primary font-bold">
+                            $2,450,000
+                        </div>
+                    </div>
+                    <div class="p-5 flex-1 flex flex-col">
+                        <div class="text-secondary text-sm font-medium mb-1">Beverly Hills, CA</div>
+                        <h3 class="text-lg font-serif text-slate-800 font-bold mb-3 line-clamp-1">The Golden Estate</h3>
+                        <div class="flex items-center gap-4 text-slate-500 text-sm mb-4 mt-auto">
+                            <div class="flex items-center gap-1"><i data-lucide="bed" class="w-4 h-4"></i> 5</div>
+                            <div class="flex items-center gap-1"><i data-lucide="bath" class="w-4 h-4"></i> 6</div>
+                            <div class="flex items-center gap-1"><i data-lucide="maximize" class="w-4 h-4"></i> 6,200 sqft</div>
+                        </div>
+                        <div class="border-t border-slate-100 pt-3 flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <img src="https://i.pravatar.cc/100?img=32" alt="Agent" class="w-6 h-6 rounded-full">
+                                <span class="text-xs text-slate-600">Sarah Jenkins</span>
+                            </div>
+                            <button class="text-slate-400 hover:text-red-500 transition-colors"><i data-lucide="heart" class="w-4 h-4"></i></button>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+
+            <!-- Pagination -->
+            <div class="mt-12 flex justify-center items-center gap-2">
+                <button class="w-10 h-10 rounded border border-slate-200 flex items-center justify-center text-slate-400 hover:border-secondary hover:text-secondary transition-colors disabled:opacity-50" disabled>
+                    <i data-lucide="chevron-left" class="w-4 h-4"></i>
+                </button>
+                <button class="w-10 h-10 rounded bg-primary text-white flex items-center justify-center font-medium shadow">1</button>
+                <button class="w-10 h-10 rounded border border-slate-200 flex items-center justify-center text-slate-600 hover:border-secondary hover:text-secondary transition-colors">2</button>
+                <button class="w-10 h-10 rounded border border-slate-200 flex items-center justify-center text-slate-600 hover:border-secondary hover:text-secondary transition-colors">3</button>
+                <span class="text-slate-400 leading-10 px-2">...</span>
+                <button class="w-10 h-10 rounded border border-slate-200 flex items-center justify-center text-slate-600 hover:border-secondary hover:text-secondary transition-colors">
+                    <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                </button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 border-t border-slate-800 text-slate-300 pt-20 pb-10">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <div>
+                    <a href="index.html" class="flex items-center gap-2 mb-6">
+                        <i data-lucide="gem" class="w-8 h-8 text-secondary"></i>
+                        <span class="text-2xl font-serif font-bold text-white tracking-wide">Elysian</span>
+                    </a>
+                    <p class="text-sm text-slate-400 font-light leading-relaxed mb-6">
+                        Redefining luxury real estate. Experience the most exquisite properties around the globe with unparalleled service.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded-full border border-slate-700 flex items-center justify-center hover:bg-secondary hover:text-white hover:border-secondary transition-colors"><i data-lucide="facebook" class="w-4 h-4"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full border border-slate-700 flex items-center justify-center hover:bg-secondary hover:text-white hover:border-secondary transition-colors"><i data-lucide="twitter" class="w-4 h-4"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full border border-slate-700 flex items-center justify-center hover:bg-secondary hover:text-white hover:border-secondary transition-colors"><i data-lucide="instagram" class="w-4 h-4"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-serif text-lg mb-6">Quick Links</h4>
+                    <ul class="space-y-3 text-sm font-light">
+                        <li><a href="index.html" class="hover:text-secondary transition-colors">Home</a></li>
+                        <li><a href="properties.html" class="hover:text-secondary transition-colors">All Properties</a></li>
+                        <li><a href="add-property.html" class="hover:text-secondary transition-colors">List Your Property</a></li>
+                        <li><a href="#" class="hover:text-secondary transition-colors">About Us</a></li>
+                        <li><a href="contact.html" class="hover:text-secondary transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-serif text-lg mb-6">Property Types</h4>
+                    <ul class="space-y-3 text-sm font-light">
+                        <li><a href="#" class="hover:text-secondary transition-colors">Luxury Villas</a></li>
+                        <li><a href="#" class="hover:text-secondary transition-colors">Penthouses</a></li>
+                        <li><a href="#" class="hover:text-secondary transition-colors">Beachfront Estates</a></li>
+                        <li><a href="#" class="hover:text-secondary transition-colors">Modern Apartments</a></li>
+                        <li><a href="#" class="hover:text-secondary transition-colors">Commercial Space</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-serif text-lg mb-6">Contact Us</h4>
+                    <ul class="space-y-4 text-sm font-light">
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="map-pin" class="w-5 h-5 text-secondary flex-shrink-0 mt-0.5"></i>
+                            <span>123 Elegance Blvd, Suite 400<br>Beverly Hills, CA 90210</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="phone" class="w-5 h-5 text-secondary flex-shrink-0"></i>
+                            <span>+1 (800) 123-4567</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="mail" class="w-5 h-5 text-secondary flex-shrink-0"></i>
+                            <span>info@elysianrealestate.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm font-light text-slate-500">
+                <p>&copy; 2024 Elysian Real Estate. All rights reserved.</p>
+                <div class="flex gap-6">
+                    <a href="#" class="hover:text-slate-300 transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-slate-300 transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
